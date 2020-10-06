@@ -1,0 +1,25 @@
+<h2><%= gettext("Sign up") %></h2>
+<%= form_for @changeset, @action, fn f -> %>
+  <%= if @changeset.action do %>
+    <div class="alert alert-danger">
+      <p><%= gettext "Oops, something went wrong! Please check the errors below" %>.</p>
+    </div>
+  <% end %>
+
+  <%= label f, gettext "Username" %>
+  <%= text_input f, :username %>
+  <%= error_tag f, :username %>
+
+  <%= label f, gettext "Password" %>
+  <%= password_input f, :password %>
+  <%= error_tag f, :password %>
+
+  <%= label f, gettext "Confirm password" %>
+  <%= password_input f, :password_confirmation %>
+  <%= error_tag f, :password_confirmation %>
+
+<div class="form-group">
+    <%= submit gettext("Submit"), class: "btn btn-primary" %>
+</div>
+<% end %>
+<a href="/login"><%= gettext("Already have an account") %>?</a>

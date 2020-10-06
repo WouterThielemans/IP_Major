@@ -1,0 +1,58 @@
+<h1><%= gettext "Profile" %></h1>
+<ul>
+   <li>
+    <strong><%= gettext "Username:" %></strong>
+    <%= @user.username %>
+  </li>
+   <li>
+    <strong><%= gettext "Role:" %></strong>
+    <%= @user.role %>
+    </li>
+</ul>
+ 
+<a href="/changeusername"> <%= gettext "Change username" %> </a>
+<br>
+<a href="/resetpassword"> <%= gettext "Change password" %> </a>
+  
+<p></p>
+
+<%= form_for @changeset, Routes.profile_path(@conn, :create_api_key), fn f -> %>
+
+<div class="form-group">
+    <%= label f, :name, class: "control-label" %>
+    <%= text_input f, :name, class: "form-control" %>
+    <%= error_tag f, :name %>
+
+    <%= label f, :is_writeable, class: "Does this key have write perm?" %>
+    <%= checkbox f, :is_writeable, class: "form-control" %>
+    <%= error_tag f, :is_writeable %>
+</div>
+
+<div class="form-group">
+
+    <%= submit gettext "Save", class: "btn btn-primary" %>
+<!--<%= link "Delete api_key 1 [owner = test_user]", to: Routes.profile_path(@conn, :deletekey, 2), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-primary" %>
+-->
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th><%= gettext "API 🔑" %></th>
+      <th><%= gettext "" %></th>
+      <th><%= gettext "" %></th>
+    </tr>
+  </thead>
+  <tbody>
+  <%= for api_key <- @apikeys do %>
+    <tr>
+      <td><%= api_key.name %></td>
+      <td><%= api_key.is_writeable %></td>
+      <td><%= link "Show", to: Routes.profile_path(@conn, :showkey, api_key), method: :get%></td>
+      <td><%= link "Delete", to: Routes.profile_path(@conn, :deletekey, api_key), method: :delete, data: [confirm: "Are you sure?"] %></td>   
+
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+<% end %>

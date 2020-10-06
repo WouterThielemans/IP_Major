@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <th><%= gettext "Id" %></th>
+      <th><%= gettext "Name" %></th>
+      <th><%= gettext "Key" %></th>
+      <th><%= gettext "Owner" %></th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for key <- @apikeys do %>   
+<tr>
+      <td><%= key.id %></td>
+      <td><%= key.name %></td>
+      <td><%= key.key %></td>
+      <td><%= key.user.username %></td>      
+
+    </tr>
+<% end %>
+
+  </tbody>
+</table>
+
+

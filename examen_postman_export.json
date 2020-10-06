@@ -1,0 +1,222 @@
+{
+	"info": {
+		"_postman_id": "4ae9cdc5-dcd6-4d40-96f7-fd3fac768591",
+		"name": "animals",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get your animals",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "myfancyheader",
+						"type": "text",
+						"value": "UlkzgotPQ1yxsxCLH/IPti8p585zqIGmm3iV8aSbhtb1ov4MOWPJ+pSxSlmpmoja"
+					}
+				],
+				"url": {
+					"raw": "localhost:4000/api/users/2/animals",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"2",
+						"animals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get details animal",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "myfancyheader",
+						"type": "text",
+						"value": "UlkzgotPQ1yxsxCLH/IPti8p585zqIGmm3iV8aSbhtb1ov4MOWPJ+pSxSlmpmoja"
+					}
+				],
+				"url": {
+					"raw": "localhost:4000/api/users/2/animals/2",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"2",
+						"animals",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create new animal",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "myfancyheader",
+						"value": "8lBo2Axw8Aj2fApRBfP0UX9t2hn84TDsuuoRaIFsvxgFqBPk6dcloZMF/chQj1oI",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "animal[name]",
+							"value": "snuffles",
+							"type": "text"
+						},
+						{
+							"key": "animal[dob]",
+							"value": "2019-05-05",
+							"type": "text"
+						},
+						{
+							"key": "animal[cat_or_dog]",
+							"value": "dog",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/users/2/animals",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"2",
+						"animals"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update animal",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "myfancyheader",
+						"type": "text",
+						"value": "UlkzgotPQ1yxsxCLH/IPti8p585zqIGmm3iV8aSbhtb1ov4MOWPJ+pSxSlmpmoja"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "animal[name]",
+							"value": "SnuffelySnufSNuf",
+							"type": "text"
+						},
+						{
+							"key": "animal[dob]",
+							"value": "2019-10-10",
+							"type": "text"
+						},
+						{
+							"key": "animal[cat_or_dog]",
+							"value": "dog",
+							"type": "text"
+						}
+					],
+					"options": {
+						"formdata": {}
+					}
+				},
+				"url": {
+					"raw": "localhost:4000/api/users/2/animals/2",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"2",
+						"animals",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete animal",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "myfancyheader",
+						"type": "text",
+						"value": "UlkzgotPQ1yxsxCLH/IPti8p585zqIGmm3iV8aSbhtb1ov4MOWPJ+pSxSlmpmoja"
+					}
+				],
+				"url": {
+					"raw": "localhost:4000/api/users/2/animals/1",
+					"host": [
+						"localhost"
+					],
+					"port": "4000",
+					"path": [
+						"api",
+						"users",
+						"2",
+						"animals",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6aed6363-7c19-419d-8538-2378bfdf4d66",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "2e7c3657-d716-411d-a890-a1cb013b4c47",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"protocolProfileBehavior": {}
+}

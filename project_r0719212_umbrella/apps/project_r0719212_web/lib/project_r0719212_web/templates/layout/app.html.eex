@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <title><%= assigns[:page_title] || "ProjectR0719212 · Animals" %></title>
+    <link rel="stylesheet" href="<%= Routes.static_path(@conn, "/css/app.css") %>"/>
+    <%= csrf_meta_tag() %>
+  </head>
+  <body>
+    <header>
+      <section class="container">
+      <%= if Guardian.Plug.current_resource(@conn)  do %>
+        <nav role="navigation">
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/profile"><%= gettext "My Profile" %></a></li>
+           <%= if Guardian.Plug.current_resource(@conn) == nil do %>
+          <li><a href="<%= Routes.session_path(@conn, :new) %>"><%= gettext "Login" %></a></li>
+          <%end%>
+          <li><a href="<%= Routes.session_path(@conn, :logout) %>"><%= gettext "Logout" %></a></li>
+          <%= if Guardian.Plug.current_resource(@conn) != nil and Guardian.Plug.current_resource(@conn).role == "Admin" do %>
+          <li><a href="<%= Routes.user_path(@conn, :index) %>"><%= gettext "Users" %></a></li>
+          <%end%>
+        </ul>
+      </nav>
+      <%end%>
+
+      <ul>
+        <li><%= new_locale @conn, :en, gettext "English" %></li>
+        <li><%= new_locale @conn, :nl, gettext "Dutch" %></li>
+      </ul>
+      
+        <p><%= gettext "Project of Wouter Thielemans" %></p>
+      </section>
+    </header>
+    <main role="main" class="container">
+      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
+      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
+      <%= render @view_module, @view_template, assigns %>
+    </main>
+    <script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>

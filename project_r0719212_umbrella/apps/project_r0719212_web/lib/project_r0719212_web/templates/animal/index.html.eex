@@ -1,0 +1,26 @@
+<section class="phx-hero">
+  <p id = "tijd"></p>
+</section>
+<%= if assigns[:animals] do%>
+<table>
+  <thead>
+    <tr>
+      <th><%= gettext "Name" %></th>
+      <th><%= gettext "Date of birth" %></th>
+      <th><%= gettext "cat or dog" %></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for animal <- @animals do %>
+    <tr>
+      <td><%= animal.name %></td>
+      <td><%= animal.dob %></td>
+      <td><%= animal.cat_or_dog %></td>      
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%end%>
+<script type="text/javascript" src="<%= Routes.static_path(@conn, "/js/time.js") %>">"</script>
